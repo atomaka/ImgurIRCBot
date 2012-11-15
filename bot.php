@@ -7,7 +7,7 @@ $conf = json_decode(implode("\n", file(__DIR__ . '/conf/settings.conf')));
 $bot = &new ImgurBot($conf);
 $irc = &new Net_SmartIRC();
 if($conf->debug) $irc->setDebug(SMARTIRC_DEBUG_ALL);
-$irc->registerTimehandler(10000, $bot, 'randomTop');
+$irc->registerTimehandler($conf->timing, $bot, 'randomTop');
 if($conf->ssl) {
   $irc->setUseSockets(FALSE);
   $irc->connect('ssl://' . $conf->server, $conf->port);
