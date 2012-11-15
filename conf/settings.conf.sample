@@ -3,6 +3,7 @@
   "server": "irc.chat.com",
   "port": 6667,
   "target": "TestUser",
+  "host": "TargetPartialHostMatch",
   "timing": 100,
   "ssl": true,
   "debug": false

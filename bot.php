@@ -16,6 +16,9 @@ if($conf->ssl) {
   $irc->connect($conf->server, $conf->port);
 }
 
+$irc->registerActionhandler(SMARTIRC_TYPE_NICKCHANGE, '', $bot, 'nickFinder');
+
 $irc->login($conf->nick, 'ImgurBot', 0, $conf->nick);
+$irc->join(array('#test'));
 $irc->listen();
 $irc->disconnect();

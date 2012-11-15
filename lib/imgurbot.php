@@ -1,6 +1,6 @@
 <?php
 
-include_once(__DIR__ . '/../Net_SmartIRC-1.0.0/SmartIRC.php');
+include_once(__DIR__ . '/Net_SmartIRC-1.0.0/SmartIRC.php');
 
 class ImgurBot {
   var $imgUrl = 'http://imgur.com';
@@ -9,6 +9,7 @@ class ImgurBot {
   function __construct($conf) {
     $this->nick = $conf->nick;
     $this->target = $conf->target;
+    $this->host = $conf->host;
   }
 
   function quit(&$irc, &$data) {
@@ -20,6 +21,13 @@ class ImgurBot {
     $random = $images->data[rand(0, count($images->data) - 1)];
 
     $irc->message(SMARTIRC_TYPE_CHANNEL, $this->target, $this->imgUrl . '/gallery/' . $random->hash);
+  }
+
+  function nickFinder(&$irc, &$data) {
+    if(preg_match("/^$this->host/", $data->host) == 1) {
+      $this->target = $data->message;
+      $irc->message(SMARTIRC_TYPE_CHANNEL, $this->target, "You can run but you can't hide!");
+    }
   }
 
   private
