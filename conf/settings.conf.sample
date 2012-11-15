@@ -1,0 +1,9 @@
+{
+  "nick": "YourBestFriend",
+  "server": "irc.chat.com",
+  "port": 6667,
+  "target": "TestUser",
+  "timing": 100,
+  "ssl": true,
+  "debug": false
+}
