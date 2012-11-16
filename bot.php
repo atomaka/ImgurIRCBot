@@ -17,6 +17,7 @@ if($conf->ssl) {
 }
 
 $irc->registerActionhandler(SMARTIRC_TYPE_NICKCHANGE, '', $bot, 'nickFinder');
+$irc->registerActionhandler(SMARTIRC_TYPE_JOIN, '', $bot, 'nickFinder');
 
 $irc->login($conf->nick, 'ImgurBot', 0, $conf->nick);
 $irc->join(array('#test'));
