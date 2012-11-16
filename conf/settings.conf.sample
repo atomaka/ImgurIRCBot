@@ -4,6 +4,7 @@
   "port": 6667,
   "target": "TestUser",
   "host": "TargetPartialHostMatch",
+  "channel": "#cs",
   "timing": 100,
   "ssl": true,
   "debug": false

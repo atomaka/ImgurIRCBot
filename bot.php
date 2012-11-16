@@ -20,6 +20,6 @@ $irc->registerActionhandler(SMARTIRC_TYPE_NICKCHANGE, '', $bot, 'nickFinder');
 $irc->registerActionhandler(SMARTIRC_TYPE_JOIN, '', $bot, 'nickFinder');
 
 $irc->login($conf->nick, 'ImgurBot', 0, $conf->nick);
-$irc->join(array('#test'));
+$irc->join(array($conf->channel));
 $irc->listen();
 $irc->disconnect();
